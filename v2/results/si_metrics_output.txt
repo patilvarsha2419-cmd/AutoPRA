@@ -1,0 +1,74 @@
+and another thing for signal integrity all i only have this thing 
+
+
+```
+✅ Data ready: 250 cells, 8707 nets
+   Critical nets    (degree>3) : 0
+   Non-critical nets (degree≤3): 8707
+   Max net degree              : 3
+
+   Real EDA critical HPWL : 0.0
+   Real EDA SI violations : 47.7%
+   Real EDA max net length: 42.0
+
+✅ Random | HPWL: 157395.0 | Critical: 0.0
+
+🔥 Running SA...
+✅ SA done in 222.5s | HPWL: 25046.5 | Critical: 0.0
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 187.6/187.6 kB 1.6 MB/s eta 0:00:00
+
+```
+
+
+```
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+
+```
+
+
+```
+🚀 Training PPO (500k steps)...
+
+```
+
+
+```
+/usr/local/lib/python3.12/dist-packages/jupyter_client/session.py:203: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  return datetime.utcnow().replace(tzinfo=utc)
+
+```
+
+
+```
+  Step   50000 | HPWL: 59720.0
+  Step  100000 | HPWL: 59720.0
+✅ PPO | HPWL: 59720.0 | Critical: 0.0
+
+============================================================================================
+📊 AutoPRA v2 — SI + Extended Metrics (CircuitNet RISCY-a-1-c2)
+============================================================================================
+  Method                 HPWL  vsRand   CritHPWL   NonCrit   MaxNet  SIViol%    WtHPWL
+  ───────────────────────────────────────────────────────────────────────────────────────
+  Real EDA (gold)    141106.0       —        0.0  141106.0     42.0    47.7%  141106.0
+  Random             157395.0    0.0%        0.0  157395.0     49.0    82.7%  157395.0
+  SA (classical)      25046.5   84.1%        0.0   25046.5     33.5     1.7%   25046.5
+  AutoPRA PPO         59720.0   62.1%        0.0   59720.0     24.5    25.8%   59720.0
+============================================================================================
+
+📊 Key Findings:
+   Total nets in analysis    : 8707 (0 critical, 8707 non-critical)
+   PPO HPWL vs random        : 62.1% improvement
+   PPO SI violations         : 25.8% (57.0% fewer than random)
+   PPO critical HPWL vs rand : 0.0% improvement
+   PPO max net vs random     : 49.0 → 24.5 (50.0% shorter)
+   SA SI violations          : 1.7% (81.0% fewer than random)
+
+📌 Note: Critical HPWL=0 means top-250 selected cells have no
+   degree>3 nets among them — all high-fanout nets connect to
+   cells outside our 250-cell subset (expected for RISC-V design).
+
+```
